@@ -1,17 +1,13 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) Car Marketplace project. Here customers can sign up to sell their cars by adding all the info needed. At this time it's on development stage. Main purpose of this app is to improve my skills and gain more experience in using modern technologies including Next.js, Tailwind and Prisma with Supabase.
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+
 pnpm dev
-# or
-bun dev
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
