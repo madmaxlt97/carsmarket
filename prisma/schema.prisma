@@ -12,6 +12,49 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id          String  @id @default(cuid())
+  name        String?
+  email       String  @unique
+  password    String?
+  emailVerified DateTime?
+  image       String?
+  accounts    Account[]
+  sessions    Session[]
+  cars        Car[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Account {
+  id            String @id @default(cuid())
+  userId        String
+  type          String
+  provider      String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
 model Car {
   id          String   @id @default(cuid())
   brand       String
@@ -30,4 +73,7 @@ model Car {
   driveType   String?
   doorNumber  String?
   createdAt   DateTime @default(now())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

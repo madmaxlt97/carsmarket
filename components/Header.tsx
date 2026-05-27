@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { use, useState } from "react";
+import AuthModal from "./AuthModal";
 
 export default function Header() {
   const pathName = usePathname();
@@ -8,6 +10,7 @@ export default function Header() {
     { href: "/create-car", label: "Sell you car" },
     { href: "/cars", label: "See cars" },
   ];
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-md flex justify-between items-center p-2 pl-4 pr-4 bg-gradient-to-br from-[#4e4e4e]/70 to-[#676161]/70 ">
       <Link
@@ -34,6 +37,13 @@ export default function Header() {
           );
         })}
       </div>
+      <button
+        onClick={() => setIsAuthOpen(true)}
+        className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg font-medium transition"
+      >
+        Sign In
+      </button>
+      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
     </nav>
   );
 }

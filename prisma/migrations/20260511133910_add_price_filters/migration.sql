@@ -1,4 +1,0 @@
--- AlterTable
-ALTER TABLE "Car" ADD COLUMN     "fuelType" TEXT NOT NULL DEFAULT 'Other',
-ALTER COLUMN "mileage" DROP NOT NULL,
-ALTER COLUMN "description" DROP NOT NULL;

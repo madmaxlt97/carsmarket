@@ -15,6 +15,7 @@ interface CarsPageProps {
     maxYear?: string;
     fuelType?: string;
     gearbox?: string;
+    driveType?: string;
     color?: string;
     createdAt?: string;
   }>;
@@ -49,19 +50,31 @@ export default async function CarListPage({ searchParams }: CarsPageProps) {
       shape: clean(params.shape),
       fuelType: clean(params.fuelType),
       gearbox: clean(params.gearbox),
-      color: clean(params.gearbox),
-      year: {
-        gte: toNumber(params.minYear),
-        lte: toNumber(params.maxYear),
-      },
-      price: {
-        gte: toNumber(params.minPrice),
-        lte: toNumber(params.maxPrice),
-      },
-      mileage: {
-        gte: toNumber(params.minMileage),
-        lte: toNumber(params.maxMileage),
-      },
+      driveType: clean(params.driveType),
+      color: clean(params.color),
+      year:
+        params.minYear || params.maxYear
+          ? {
+              ...(params.minYear && { gte: toNumber(params.minYear) }),
+              ...(params.maxYear && { lte: toNumber(params.maxYear) }),
+            }
+          : undefined,
+
+      price:
+        params.minPrice || params.maxPrice
+          ? {
+              ...(params.minPrice && { gte: toNumber(params.minPrice) }),
+              ...(params.maxPrice && { lte: toNumber(params.maxPrice) }),
+            }
+          : undefined,
+
+      mileage:
+        params.minMileage || params.maxMileage
+          ? {
+              ...(params.minMileage && { gte: toNumber(params.minMileage) }),
+              ...(params.maxMileage && { lte: toNumber(params.maxMileage) }),
+            }
+          : undefined,
     },
   });
   console.log(params);

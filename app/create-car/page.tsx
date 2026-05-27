@@ -54,7 +54,7 @@ export default function createCarPage() {
         </select>
         <select name="driveType" className="border p-2 rounded">
           <option value="">Select drive type</option>
-          <option value="Front Wheel drive">Front Wheel Drive</option>
+          <option value="Front Wheel Drive">Front Wheel Drive</option>
           <option value="Rear Wheel Drive">Rear Wheel Drive</option>
           <option value="All Wheel Drive">All Wheel Drive</option>
         </select>
