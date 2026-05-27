@@ -1,13 +1,62 @@
-This is a [Next.js](https://nextjs.org) Car Marketplace project. Here customers can sign up to sell their cars by adding all the info needed. At this time it's on development stage. Main purpose of this app is to improve my skills and gain more experience in using modern technologies including Next.js, Tailwind and Prisma with Supabase.
+# 🚗 CarsMarket — Full-Stack Car Marketplace
 
-## Getting Started
+A modern, high-performance web application designed for listing, browsing, and managing vehicle sales. Built with a focus on type safety, efficient database querying, and a responsive user experience.
 
-First, run the development server:
+⚠️ **Project Status:** _In active development (MVP phase)._
+
+## 🛠 Tech Stack
+
+- **Framework:** Next.js (App Router)
+- **Language:** TypeScript (Strict mode)
+- **Styling:** Tailwind CSS
+- **Database & ORM:** Prisma ORM with Supabase (PostgreSQL)
+- **State Management & Data Fetching:** Next.js Server Components & Actions
+
+## 📐 Architecture & Key Features
+
+### 🔹 Implemented
+
+- **Database Design:** Structured relational database schema built with Prisma, optimized for car specifications (make, model, year, mileage, price, etc.).
+- **Responsive UI:** Fully fluid and modern user interface styled with Tailwind CSS, supporting all mobile and desktop screen sizes.
+- **Server-Side Rendering (SSR):** Leveraging Next.js App Router for faster initial page loads and improved SEO metadata management.
+
+### 🔹 In Progress / Roadmap
+
+- [ ] **User Authentication:** Secure seller registration and login using Supabase Auth.
+- [ ] **Vehicle Listing Management:** Private dashboard for users to create, edit, and delete their car advertisements.
+- [ ] **Image Upload Pipeline:** Secure cloud storage integration for hosting high-resolution vehicle photos.
+- [ ] **Advanced Filtering & Search:** Real-time search functionality by price range, location, and vehicle specifications.
+
+## 🚀 Purpose & Focus
+
+The main goal of this application is to implement production-ready patterns in full-stack development. It showcases clean code architecture, type-safe database interactions via Prisma, and seamless integration between frontend and backend layers using Next.js.
+
+---
+
+## 💻 Getting Started
+
+### Prerequisites
+
+Make sure you have Node.js and `pnpm` installed on your machine.
+
+### Installation
+
+1. Clone the repository:
 
 ```bash
+   git clone [https://github.com/madmaxlt97/carsmarket.git](https://github.com/madmaxlt97/carsmarket.git).
+```
 
-pnpm dev
+2. Install dependencies:
 
+```bash
+    pnpm install
+```
+
+3. Run the development server:
+
+```bash
+    pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
