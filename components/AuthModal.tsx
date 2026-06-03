@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { signIn } from "next-auth/react";
+import { signIn } from "next-auth/react"; // Хелпер Auth.js для входа
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -9,7 +9,7 @@ interface AuthModalProps {
 }
 
 export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
-  const [isLogin, setIsLogin] = useState("");
+  const [isLogin, setIsLogin] = useState(true); // Переключатель: Вход / Регистрация
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -24,19 +24,21 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
     setLoading(true);
 
     if (isLogin) {
+      // --- Login logic ---
       const res = await signIn("credentials", {
-        redirect: false,
+        redirect: false, // To not refresh whole page
         email,
         password,
       });
 
       if (res?.error) {
-        setError("Invalid email or password!");
+        setError("Invalid email or password");
       } else {
-        onClose();
-        window.location.reload();
+        onClose(); // Close pop-up after success
+        window.location.reload(); // Easy reload session data
       }
     } else {
+      // --- Sign Up logic ---
       try {
         const res = await fetch("/api/register", {
           method: "POST",
@@ -49,11 +51,13 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
         if (!res.ok) {
           setError(data.error || "Something went wrong");
         } else {
+          // Log in straught after sign up
           const loginRes = await signIn("credentials", {
             redirect: false,
             email,
             password,
           });
+
           if (loginRes?.error) {
             setError("Registered, but failed to log in automatically");
           } else {
@@ -61,18 +65,19 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
             window.location.reload();
           }
         }
-      } catch (error) {
+      } catch (err) {
         setError("Connection error");
       }
     }
     setLoading(false);
   };
+
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-      {/* Задний фон-затемнение закроет попап при клике мимо */}
+      {/* background and closing afet miss-click */}
       <div className="absolute inset-0" onClick={onClose} />
 
-      {/* Контентное окно */}
+      {/* content window */}
       <div className="bg-white rounded-2xl p-6 w-full max-w-md relative z-10 shadow-xl border border-slate-100">
         <button
           onClick={onClose}

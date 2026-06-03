@@ -1,9 +1,12 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
+import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 
 export async function createCar(formData: FormData) {
+  const session = await auth();
+
   const brand = formData.get("brand") as string;
   const model = formData.get("model") as string;
   const year = parseInt(formData.get("year") as string);
@@ -18,9 +21,12 @@ export async function createCar(formData: FormData) {
   const driveType = formData.get("driveType") as string;
   const doorNumber = formData.get("doorNumber") as string;
   const color = formData.get("color") as string;
-  const createdAt = formData.get("createdAt") as string;
 
-  await prisma.car.create({
+  if (!session?.user?.id) {
+    throw new Error("You must be logged in to post cars");
+  }
+
+  const newCar = await prisma.car.create({
     data: {
       brand,
       model,
@@ -37,7 +43,8 @@ export async function createCar(formData: FormData) {
       driveType,
       doorNumber,
       color,
-      createdAt,
+
+      userId: session.user.id,
     },
   });
   redirect("/cars");
