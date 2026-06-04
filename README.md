@@ -22,7 +22,7 @@ A modern, high-performance web application designed for listing, browsing, and m
 
 ### 🔹 In Progress / Roadmap
 
-- [ ] **User Authentication:** Secure seller registration and login using Supabase Auth.
+- [x] **User Authentication:** Secure seller registration and login using Supabase Auth.
 - [ ] **Vehicle Listing Management:** Private dashboard for users to create, edit, and delete their car advertisements.
 - [ ] **Image Upload Pipeline:** Secure cloud storage integration for hosting high-resolution vehicle photos.
 - [ ] **Advanced Filtering & Search:** Real-time search functionality by price range, location, and vehicle specifications.
