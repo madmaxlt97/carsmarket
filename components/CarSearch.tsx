@@ -35,13 +35,10 @@ export default function CarSearch() {
     getCount();
   }, [filters]);
   const handleSearch = (e?: React.MouseEvent) => {
-    // Останавливаем браузер, чтобы он не делал свой грязный сабмит
     if (e) e.preventDefault();
     const params = new URLSearchParams();
-    // 2. Проходим по нашему стейту фильтров
+
     Object.entries(filters).forEach(([key, value]) => {
-      // 3. Добавляем в URL только если значение не пустое
-      // value.trim() уберет случайные пробелы
       if (value && value.toString().trim() !== "") {
         params.append(key, value.toString());
       }
@@ -49,7 +46,7 @@ export default function CarSearch() {
     const queryString = params.toString();
     const path = queryString ? `/cars?${queryString}` : "/cars";
 
-    router.push(path);
+    router.push(path, { scroll: false });
   };
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -65,22 +62,22 @@ export default function CarSearch() {
     >
       <input
         name="brand"
-        value={filters.brand} // Связываем!
-        onChange={handleChange} // Слушаем!
+        value={filters.brand}
+        onChange={handleChange}
         placeholder="Brand..."
         className="border p-2 rounded"
       />
       <input
         name="model"
         placeholder="Model..."
-        value={filters.model} // Связываем!
-        onChange={handleChange} // Слушаем!
+        value={filters.model}
+        onChange={handleChange}
         className="border p-2 rounded"
       />
       <select
         name="shape"
-        value={filters.shape} // Связываем!
-        onChange={handleChange} // Слушаем!
+        value={filters.shape}
+        onChange={handleChange}
         className="border p-2 rounded"
       >
         <option value="">Select shape...</option>
@@ -95,8 +92,8 @@ export default function CarSearch() {
       </select>
       <select
         name="fuelType"
-        value={filters.fuelType} // Связываем!
-        onChange={handleChange} // Слушаем!
+        value={filters.fuelType}
+        onChange={handleChange}
         className="border p-2 rounded"
       >
         <option value="">Select fuel type</option>
@@ -108,8 +105,8 @@ export default function CarSearch() {
       </select>
       <select
         name="gearbox"
-        value={filters.gearbox} // Связываем!
-        onChange={handleChange} // Слушаем!
+        value={filters.gearbox}
+        onChange={handleChange}
         className="border p-2 rounded"
       >
         <option value="">Select gearbox type</option>
@@ -119,8 +116,8 @@ export default function CarSearch() {
       </select>
       <select
         name="driveType"
-        value={filters.driveType} // Связываем!
-        onChange={handleChange} // Слушаем!
+        value={filters.driveType}
+        onChange={handleChange}
         className="border p-2 rounded"
       >
         <option value="">Select drive type</option>
@@ -133,8 +130,8 @@ export default function CarSearch() {
           <input
             type="number"
             name="minYear"
-            value={filters.minYear} // Связываем!
-            onChange={handleChange} // Слушаем!
+            value={filters.minYear}
+            onChange={handleChange}
             placeholder="Year from"
             className="border p-1 w-28 rounded"
           />
@@ -142,8 +139,8 @@ export default function CarSearch() {
         <span>
           <input
             type="number"
-            value={filters.maxYear} // Связываем!
-            onChange={handleChange} // Слушаем!
+            value={filters.maxYear}
+            onChange={handleChange}
             name="maxYear"
             placeholder="Year to"
             className="border p-1 w-28 rounded"
@@ -155,8 +152,8 @@ export default function CarSearch() {
           <input
             type="number"
             name="minMileage"
-            value={filters.minMileage} // Связываем!
-            onChange={handleChange} // Слушаем!
+            value={filters.minMileage}
+            onChange={handleChange}
             placeholder="Mileage from"
             className="border p-1 w-28 rounded"
           />
@@ -165,8 +162,8 @@ export default function CarSearch() {
           <input
             type="number"
             name="maxMileage"
-            value={filters.maxMileage} // Связываем!
-            onChange={handleChange} // Слушаем!
+            value={filters.maxMileage}
+            onChange={handleChange}
             placeholder="Mileage to"
             className="border p-1 w-28 rounded"
           />
@@ -177,8 +174,8 @@ export default function CarSearch() {
           <input
             type="number"
             name="minPrice"
-            value={filters.minPrice} // Связываем!
-            onChange={handleChange} // Слушаем!
+            value={filters.minPrice}
+            onChange={handleChange}
             placeholder="Min price..."
             className="border p-1 w-28 rounded"
           />
@@ -187,8 +184,8 @@ export default function CarSearch() {
           <input
             type="number"
             name="maxPrice"
-            value={filters.maxPrice} // Связываем!
-            onChange={handleChange} // Слушаем!
+            value={filters.maxPrice}
+            onChange={handleChange}
             placeholder="Max price..."
             className="border p-1 w-28 rounded"
           />

@@ -1,6 +1,5 @@
 import { prisma } from "@/lib/prisma";
 import CarCard from "@/components/CarCard";
-import CarSearch from "@/components/CarSearch";
 
 interface CarsPageProps {
   searchParams: Promise<{
@@ -83,33 +82,30 @@ export default async function CarListPage({ searchParams }: CarsPageProps) {
     return <div>No cars posted yet</div>;
   }
   return (
-    <div className="bg-gray-50">
+    <div className="flex-1 flex flex-col gap-4 w-full">
       <h1 className="flex justify-center items-center gap-2 text-lg text-slate-500 font-medium sm:text-xl md:text-2xl pt-4">
         <span>See Available cars</span>
         <span className="bg-slate-100 px-2 py-0.5 rounded-full text-sm text-slate-600">
           ({carCounter})
         </span>
       </h1>
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-6 p-4 min-h-screen">
-        {/* Added flex and items-start to align the search form to the left */}
-        <CarSearch />
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-2 w-full max-w-[2000px]">
-          {cars.map((car) => (
-            <CarCard
-              key={car.id}
-              car={{
-                ...car,
-                brand: car.brand,
-                model: car.model,
-                year: car.year,
-                price: car.price,
-                image: car.imageUrl,
-                description: car.description,
-                fuelType: car.fuelType,
-              }}
-            />
-          ))}
-        </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-2 w-full max-w-[2000px]">
+        {cars.map((car) => (
+          <CarCard
+            key={car.id}
+            car={{
+              ...car,
+              brand: car.brand,
+              model: car.model,
+              year: car.year,
+              price: car.price,
+              image: car.imageUrl,
+              description: car.description,
+              fuelType: car.fuelType,
+            }}
+          />
+        ))}
       </div>
     </div>
   );
