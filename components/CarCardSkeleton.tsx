@@ -2,22 +2,27 @@ import { Skeleton } from "./ui/Skeleton";
 
 export default function CarCardSkeleton() {
   return (
-    <div className="border border-slate-200 rounded-lg p-3 bg-white">
+    <div className="bg-white shadow-md hover:bg-gray-200 transition rounded-lg overflow-hidden max-w-sm">
       {/* Картинка */}
-      <Skeleton className="aspect-[16/10] w-full mb-3" />
+      <Skeleton className="w-full h-48" />
 
-      {/* Название */}
-      <Skeleton className="h-5 w-3/4 mb-2" />
+      <div className="p-4 space-y-3">
+        {/* Название */}
+        <Skeleton className="h-7 w-3/4 mb-1" />
 
-      {/* Цена */}
-      <Skeleton className="h-6 w-1/2 mb-4" />
-
-      {/* Характеристики */}
-      <div className="grid grid-cols-2 gap-2">
-        <Skeleton className="h-4 w-full" />
-        <Skeleton className="h-4 w-full" />
-        <Skeleton className="h-4 w-full" />
-        <Skeleton className="h-4 w-full" />
+        {/* Характеристики */}
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-1/2" />
+          <Skeleton className="h-4 w-2/3" />
+          <div className="flex gap-4">
+            <Skeleton className="h-4 w-1/3" />
+            <Skeleton className="h-4 w-1/3" />
+          </div>
+          <Skeleton className="h-4 w-1/2" />
+          <Skeleton className="h-4 w-3/5" />
+        </div>
+        {/* Цена */}
+        <Skeleton className="h-8 w-1/3 mt-4 bg-green-100" />
       </div>
     </div>
   );

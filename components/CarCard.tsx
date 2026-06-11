@@ -21,7 +21,7 @@ interface CarCardProps {
 
 const CarCard = ({ car }: CarCardProps) => {
   return (
-    <Link href={`cars/${car.id}`}>
+    <Link href={`cars/${car.id}`} target="_blank" rel="noopener noreferrer">
       <div className="bg-white shadow-md hover:bg-gray-200 transition rounded-lg overflow-hidden max-w-sm">
         <Image
           src={car.imageUrl}
