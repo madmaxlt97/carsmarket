@@ -72,6 +72,7 @@ model Car {
   color        String?
   driveType    String?
   doorNumber   String?
+  phone        String   @default("No phone")
   createdAt    DateTime @default(now())
 
   userId String

@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import PhoneButton from "@/components/PhoneButton";
 import {
   Calendar1,
   Fuel,
@@ -50,6 +51,9 @@ export default async function CarPage({ params }: carPageProps) {
                 className="object-cover"
                 priority
               />
+            </div>
+            <div className="my-2">
+              <PhoneButton phone={car.phone} />
             </div>
           </div>
           <div className="md:flex-1">

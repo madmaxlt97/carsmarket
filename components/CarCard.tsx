@@ -13,6 +13,7 @@ interface Car {
   imageUrl: string;
   description: string | null;
   fuelType: string | null;
+  phone: string | null;
 }
 
 interface CarCardProps {

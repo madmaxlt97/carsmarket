@@ -17,6 +17,7 @@ interface CarsPageProps {
     driveType?: string;
     color?: string;
     createdAt?: string;
+    phone?: string;
   }>;
 }
 

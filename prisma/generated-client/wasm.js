@@ -167,6 +167,7 @@ exports.Prisma.CarScalarFieldEnum = {
   color: 'color',
   driveType: 'driveType',
   doorNumber: 'doorNumber',
+  phone: 'phone',
   createdAt: 'createdAt',
   userId: 'userId'
 };

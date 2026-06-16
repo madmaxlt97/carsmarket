@@ -21,6 +21,7 @@ export async function createCar(prevState: any, formData: FormData) {
   const driveType = formData.get("driveType") as string;
   const doorNumber = formData.get("doorNumber") as string;
   const color = formData.get("color") as string;
+  const phone = formData.get("phone") as string;
 
   if (!session?.user?.id) {
     return {
@@ -40,6 +41,7 @@ export async function createCar(prevState: any, formData: FormData) {
         driveType,
         doorNumber,
         color,
+        phone,
       },
     };
   }
@@ -61,6 +63,7 @@ export async function createCar(prevState: any, formData: FormData) {
       driveType,
       doorNumber,
       color,
+      phone,
 
       userId: session.user.id,
     },

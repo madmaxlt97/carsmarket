@@ -4625,6 +4625,7 @@ export namespace Prisma {
     color: string | null
     driveType: string | null
     doorNumber: string | null
+    phone: string | null
     createdAt: Date | null
     userId: string | null
   }
@@ -4646,6 +4647,7 @@ export namespace Prisma {
     color: string | null
     driveType: string | null
     doorNumber: string | null
+    phone: string | null
     createdAt: Date | null
     userId: string | null
   }
@@ -4667,6 +4669,7 @@ export namespace Prisma {
     color: number
     driveType: number
     doorNumber: number
+    phone: number
     createdAt: number
     userId: number
     _all: number
@@ -4706,6 +4709,7 @@ export namespace Prisma {
     color?: true
     driveType?: true
     doorNumber?: true
+    phone?: true
     createdAt?: true
     userId?: true
   }
@@ -4727,6 +4731,7 @@ export namespace Prisma {
     color?: true
     driveType?: true
     doorNumber?: true
+    phone?: true
     createdAt?: true
     userId?: true
   }
@@ -4748,6 +4753,7 @@ export namespace Prisma {
     color?: true
     driveType?: true
     doorNumber?: true
+    phone?: true
     createdAt?: true
     userId?: true
     _all?: true
@@ -4856,6 +4862,7 @@ export namespace Prisma {
     color: string | null
     driveType: string | null
     doorNumber: string | null
+    phone: string
     createdAt: Date
     userId: string
     _count: CarCountAggregateOutputType | null
@@ -4896,6 +4903,7 @@ export namespace Prisma {
     color?: boolean
     driveType?: boolean
     doorNumber?: boolean
+    phone?: boolean
     createdAt?: boolean
     userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -4918,6 +4926,7 @@ export namespace Prisma {
     color?: boolean
     driveType?: boolean
     doorNumber?: boolean
+    phone?: boolean
     createdAt?: boolean
     userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -4940,6 +4949,7 @@ export namespace Prisma {
     color?: boolean
     driveType?: boolean
     doorNumber?: boolean
+    phone?: boolean
     createdAt?: boolean
     userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -4962,11 +4972,12 @@ export namespace Prisma {
     color?: boolean
     driveType?: boolean
     doorNumber?: boolean
+    phone?: boolean
     createdAt?: boolean
     userId?: boolean
   }
 
-  export type CarOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "brand" | "model" | "shape" | "displacement" | "power" | "fuelType" | "price" | "year" | "mileage" | "imageUrl" | "description" | "gearbox" | "color" | "driveType" | "doorNumber" | "createdAt" | "userId", ExtArgs["result"]["car"]>
+  export type CarOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "brand" | "model" | "shape" | "displacement" | "power" | "fuelType" | "price" | "year" | "mileage" | "imageUrl" | "description" | "gearbox" | "color" | "driveType" | "doorNumber" | "phone" | "createdAt" | "userId", ExtArgs["result"]["car"]>
   export type CarInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -4999,6 +5010,7 @@ export namespace Prisma {
       color: string | null
       driveType: string | null
       doorNumber: string | null
+      phone: string
       createdAt: Date
       userId: string
     }, ExtArgs["result"]["car"]>
@@ -5441,6 +5453,7 @@ export namespace Prisma {
     readonly color: FieldRef<"Car", 'String'>
     readonly driveType: FieldRef<"Car", 'String'>
     readonly doorNumber: FieldRef<"Car", 'String'>
+    readonly phone: FieldRef<"Car", 'String'>
     readonly createdAt: FieldRef<"Car", 'DateTime'>
     readonly userId: FieldRef<"Car", 'String'>
   }
@@ -5930,6 +5943,7 @@ export namespace Prisma {
     color: 'color',
     driveType: 'driveType',
     doorNumber: 'doorNumber',
+    phone: 'phone',
     createdAt: 'createdAt',
     userId: 'userId'
   };
@@ -6264,6 +6278,7 @@ export namespace Prisma {
     color?: StringNullableFilter<"Car"> | string | null
     driveType?: StringNullableFilter<"Car"> | string | null
     doorNumber?: StringNullableFilter<"Car"> | string | null
+    phone?: StringFilter<"Car"> | string
     createdAt?: DateTimeFilter<"Car"> | Date | string
     userId?: StringFilter<"Car"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -6286,6 +6301,7 @@ export namespace Prisma {
     color?: SortOrderInput | SortOrder
     driveType?: SortOrderInput | SortOrder
     doorNumber?: SortOrderInput | SortOrder
+    phone?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -6311,6 +6327,7 @@ export namespace Prisma {
     color?: StringNullableFilter<"Car"> | string | null
     driveType?: StringNullableFilter<"Car"> | string | null
     doorNumber?: StringNullableFilter<"Car"> | string | null
+    phone?: StringFilter<"Car"> | string
     createdAt?: DateTimeFilter<"Car"> | Date | string
     userId?: StringFilter<"Car"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -6333,6 +6350,7 @@ export namespace Prisma {
     color?: SortOrderInput | SortOrder
     driveType?: SortOrderInput | SortOrder
     doorNumber?: SortOrderInput | SortOrder
+    phone?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
     _count?: CarCountOrderByAggregateInput
@@ -6362,6 +6380,7 @@ export namespace Prisma {
     color?: StringNullableWithAggregatesFilter<"Car"> | string | null
     driveType?: StringNullableWithAggregatesFilter<"Car"> | string | null
     doorNumber?: StringNullableWithAggregatesFilter<"Car"> | string | null
+    phone?: StringWithAggregatesFilter<"Car"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Car"> | Date | string
     userId?: StringWithAggregatesFilter<"Car"> | string
   }
@@ -6624,6 +6643,7 @@ export namespace Prisma {
     color?: string | null
     driveType?: string | null
     doorNumber?: string | null
+    phone?: string
     createdAt?: Date | string
     user: UserCreateNestedOneWithoutCarsInput
   }
@@ -6645,6 +6665,7 @@ export namespace Prisma {
     color?: string | null
     driveType?: string | null
     doorNumber?: string | null
+    phone?: string
     createdAt?: Date | string
     userId: string
   }
@@ -6666,6 +6687,7 @@ export namespace Prisma {
     color?: NullableStringFieldUpdateOperationsInput | string | null
     driveType?: NullableStringFieldUpdateOperationsInput | string | null
     doorNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutCarsNestedInput
   }
@@ -6687,6 +6709,7 @@ export namespace Prisma {
     color?: NullableStringFieldUpdateOperationsInput | string | null
     driveType?: NullableStringFieldUpdateOperationsInput | string | null
     doorNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
   }
@@ -6708,6 +6731,7 @@ export namespace Prisma {
     color?: string | null
     driveType?: string | null
     doorNumber?: string | null
+    phone?: string
     createdAt?: Date | string
     userId: string
   }
@@ -6729,6 +6753,7 @@ export namespace Prisma {
     color?: NullableStringFieldUpdateOperationsInput | string | null
     driveType?: NullableStringFieldUpdateOperationsInput | string | null
     doorNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -6749,6 +6774,7 @@ export namespace Prisma {
     color?: NullableStringFieldUpdateOperationsInput | string | null
     driveType?: NullableStringFieldUpdateOperationsInput | string | null
     doorNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
   }
@@ -7087,6 +7113,7 @@ export namespace Prisma {
     color?: SortOrder
     driveType?: SortOrder
     doorNumber?: SortOrder
+    phone?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
   }
@@ -7116,6 +7143,7 @@ export namespace Prisma {
     color?: SortOrder
     driveType?: SortOrder
     doorNumber?: SortOrder
+    phone?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
   }
@@ -7137,6 +7165,7 @@ export namespace Prisma {
     color?: SortOrder
     driveType?: SortOrder
     doorNumber?: SortOrder
+    phone?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
   }
@@ -7670,6 +7699,7 @@ export namespace Prisma {
     color?: string | null
     driveType?: string | null
     doorNumber?: string | null
+    phone?: string
     createdAt?: Date | string
   }
 
@@ -7690,6 +7720,7 @@ export namespace Prisma {
     color?: string | null
     driveType?: string | null
     doorNumber?: string | null
+    phone?: string
     createdAt?: Date | string
   }
 
@@ -7799,6 +7830,7 @@ export namespace Prisma {
     color?: StringNullableFilter<"Car"> | string | null
     driveType?: StringNullableFilter<"Car"> | string | null
     doorNumber?: StringNullableFilter<"Car"> | string | null
+    phone?: StringFilter<"Car"> | string
     createdAt?: DateTimeFilter<"Car"> | Date | string
     userId?: StringFilter<"Car"> | string
   }
@@ -8044,6 +8076,7 @@ export namespace Prisma {
     color?: string | null
     driveType?: string | null
     doorNumber?: string | null
+    phone?: string
     createdAt?: Date | string
   }
 
@@ -8124,6 +8157,7 @@ export namespace Prisma {
     color?: NullableStringFieldUpdateOperationsInput | string | null
     driveType?: NullableStringFieldUpdateOperationsInput | string | null
     doorNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -8144,6 +8178,7 @@ export namespace Prisma {
     color?: NullableStringFieldUpdateOperationsInput | string | null
     driveType?: NullableStringFieldUpdateOperationsInput | string | null
     doorNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -8164,6 +8199,7 @@ export namespace Prisma {
     color?: NullableStringFieldUpdateOperationsInput | string | null
     driveType?: NullableStringFieldUpdateOperationsInput | string | null
     doorNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

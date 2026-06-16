@@ -135,7 +135,7 @@ export default function createCarPage() {
         />
         <input
           type="number"
-          name="phone-number"
+          name="phone"
           placeholder="Your phone number. Use country code (e.g. +370)"
           className="border p-2 rounded"
         />
