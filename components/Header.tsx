@@ -15,8 +15,6 @@ export default function Header() {
   const { data: session, status } = useSession();
   return (
     <>
-      {" "}
-      {/* <--- ОБЯЗАТЕЛЬНО: Обернули в React-фрагмент */}
       <nav className="sticky top-0 z-50 backdrop-blur-md flex justify-between items-center p-2 pl-4 pr-4 bg-gradient-to-br from-[#4e4e4e]/70 to-[#676161]/70 ">
         <Link
           className="font-semibold text-[16px] sm:text-[20px] whitespace-nowrap overflow-hidden text-ellipsis max-w-[100px] min-[400px]:max-w-none"
@@ -49,9 +47,12 @@ export default function Header() {
             <div className="h-8 w-20 bg-slate-100 animate-pulse rounded-lg" />
           ) : session?.user ? (
             <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-slate-700 bg-slate-100 px-3 py-1.5 rounded-full">
-                👋 {session.user.name || session.user.email}
-              </span>
+              <Link
+                href="/user-dashboard"
+                className="text-sm font-medium text-slate-700 bg-slate-100 px-3 py-1.5 rounded-full"
+              >
+                <span>👋 {session.user.name || session.user.email}</span>
+              </Link>
               <button
                 onClick={() => signOut({ callbackUrl: "/" })}
                 className="text-sm text-red-500 hover:text-red-700 font-medium transition"
@@ -69,7 +70,7 @@ export default function Header() {
           )}
         </div>
       </nav>
-      {/* <--- ПЕРЕНЕСЛИ СЮДА: Теперь модалка вне тега nav и встанет ровно по центру экрана */}
+
       <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
     </>
   );

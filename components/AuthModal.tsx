@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { signIn } from "next-auth/react"; // Хелпер Auth.js для входа
+import { signIn } from "next-auth/react";
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -9,7 +9,7 @@ interface AuthModalProps {
 }
 
 export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
-  const [isLogin, setIsLogin] = useState(true); // Переключатель: Вход / Регистрация
+  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -34,7 +34,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
       if (res?.error) {
         setError("Invalid email or password");
       } else {
-        onClose(); // Close pop-up after success
+        onClose();
         window.location.reload(); // Easy reload session data
       }
     } else {
@@ -51,7 +51,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
         if (!res.ok) {
           setError(data.error || "Something went wrong");
         } else {
-          // Log in straught after sign up
+          // Log in straight after sign up
           const loginRes = await signIn("credentials", {
             redirect: false,
             email,
@@ -74,10 +74,8 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-      {/* background and closing afet miss-click */}
       <div className="absolute inset-0" onClick={onClose} />
 
-      {/* content window */}
       <div className="bg-white rounded-2xl p-6 w-full max-w-md relative z-10 shadow-xl border border-slate-100">
         <button
           onClick={onClose}
