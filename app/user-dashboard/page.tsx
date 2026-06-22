@@ -14,7 +14,7 @@ export default async function UserPage() {
       userId: session?.user?.id,
     },
   });
-
+  const userCarsCounter = userCars.length;
   return (
     <div>
       <h1>Hello, {session.user.name}</h1>
@@ -24,17 +24,26 @@ export default async function UserPage() {
           No cars posted yet!
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-2 w-full max-w-[2000px]">
-          {userCars.map((car) => (
-            <CarCard
-              key={car.id}
-              car={{
-                ...car,
-                image: car.imageUrl,
-              }}
-            />
-          ))}
-        </div>
+        <>
+          <div>
+            <span>Your cars</span>
+            <span className="bg-slate-100 px-2 py-0.5 rounded-full text-sm text-slate-600">
+              ({userCarsCounter})
+            </span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-2 w-full max-w-[2000px]">
+            {userCars.map((car) => (
+              <CarCard
+                key={car.id}
+                car={{
+                  ...car,
+                  image: car.imageUrl,
+                }}
+                isEditable={true}
+              />
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

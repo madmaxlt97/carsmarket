@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export async function createCar(prevState: any, formData: FormData) {
   const session = await auth();
@@ -69,4 +70,18 @@ export async function createCar(prevState: any, formData: FormData) {
     },
   });
   redirect(`/cars/${newCar.id}`);
+}
+
+export async function deleteCar(carId: string) {
+  const session = await auth();
+  if (!session || !session.user?.id) {
+    redirect("/");
+  }
+  const carToDelete = await prisma.car.deleteMany({
+    where: {
+      id: carId,
+      userId: session.user.id,
+    },
+  });
+  revalidatePath("/user-dashboard");
 }
