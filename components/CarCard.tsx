@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import DeleteCarButton from "./DeleteCarButton";
+import UpdateCarButton from "./UpdateCarButton";
 interface Car {
   id: string;
   brand: string;
@@ -15,6 +16,7 @@ interface Car {
   description: string | null;
   fuelType: string | null;
   phone: string | null;
+  [key: string]: any;
 }
 
 interface CarCardProps {
@@ -28,7 +30,7 @@ const CarCard = ({ car, isEditable }: CarCardProps) => {
       <Link href={`cars/${car.id}`} target="_blank" rel="noopener noreferrer">
         <div className="bg-white shadow-md hover:bg-gray-200 transition rounded-lg overflow-hidden max-w-sm">
           <Image
-            src={car.imageUrl}
+            src={car.imageUrl || "/no-photo.png"}
             alt={`${car.brand} ${car.model}`}
             width={400}
             height={300}
@@ -70,6 +72,7 @@ const CarCard = ({ car, isEditable }: CarCardProps) => {
       </Link>
       {isEditable && (
         <div className="mt-2 px-1">
+          <UpdateCarButton carId={car.id} />
           <DeleteCarButton carId={car.id} />
         </div>
       )}

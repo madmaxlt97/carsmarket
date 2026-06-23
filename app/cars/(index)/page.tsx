@@ -93,19 +93,7 @@ export default async function CarListPage({ searchParams }: CarsPageProps) {
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-2 w-full max-w-[2000px]">
         {cars.map((car) => (
-          <CarCard
-            key={car.id}
-            car={{
-              ...car,
-              brand: car.brand,
-              model: car.model,
-              year: car.year,
-              price: car.price,
-              image: car.imageUrl,
-              description: car.description,
-              fuelType: car.fuelType,
-            }}
-          />
+          <CarCard key={car.id} car={car} />
         ))}
       </div>
     </div>
